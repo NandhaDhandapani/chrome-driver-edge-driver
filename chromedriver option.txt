@@ -1,0 +1,158 @@
+package com.selenium.app;
+
+
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.JavascriptExecutor;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.edge.EdgeDriver;
+
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+public class Test02 {
+
+
+ public static void main(String[] args) throws InterruptedException {
+
+// //Setting Web Driver
+
+  WebDriverManager.edgedriver().setup();
+
+//  
+
+// //Start Edge instance
+
+  WebDriver driver = new EdgeDriver();
+
+
+// WebDriverManager.chromedriver().setup();
+
+// ChromeOptions co=new ChromeOptions();
+
+// co.addArguments("--remote-allow-origins=*");
+
+// WebDriver driver=new ChromeDriver(co);
+
+  //URL
+
+  driver.get("https://demo.opencart.com/index.php?route=account/register&language=en-gb");
+
+  
+
+  //Maximize window
+
+  driver.manage().window().maximize();
+
+  
+
+  //Scroll to bottom  
+
+  JavascriptExecutor js = (JavascriptExecutor) driver;
+
+  js.executeScript("window.scrollBy(0,1000)", "");
+
+	
+
+  //Enter First Name Field Data
+
+  driver.findElement(By.xpath("//*[@id=\"input-firstname\"]")).sendKeys("NandhaKumar");
+
+  
+
+  //Enter Last Name Field Data
+
+  driver.findElement(By.xpath("//*[@id=\"input-lastname\"]")).sendKeys("K");
+
+  
+
+  //Enter Email Field Data
+
+  driver.findElement(By.xpath("//*[@id=\"input-email\"]")).sendKeys("abc@cde.fgh");
+
+  
+
+  //Enter Password Field Data
+
+  driver.findElement(By.xpath("//*[@id=\"input-password\"]")).sendKeys("password");
+
+  
+
+  //Enter Subscribe Radio Field Data
+
+  driver.findElement(By.xpath("//*[@id=\"input-newsletter-yes\"]")).click();
+
+  
+
+  //Enter Terms Checkbox Field Data
+
+  driver.findElement(By.xpath("//*[@id=\"form-register\"]/div/div/div/input")).click();
+
+  
+
+  //Enter Continue Button Data
+
+  driver.findElement(By.xpath("//*[@id=\"form-register\"]/div/div/button")).click();
+
+
+  //Wait forWait 5 sec  
+
+  Thread.sleep(5000);
+
+  
+
+  // Goback
+
+  driver.navigate().back();
+
+
+  //Wait forWait 3 sec  
+
+  Thread.sleep(3000);
+
+  
+
+  // Refresh
+
+  driver.navigate().refresh();
+
+
+  //Wait forWait 3 sec  
+
+  Thread.sleep(3000);
+
+  
+
+  // Forward
+
+  driver.navigate().forward();
+
+
+  //Wait forWait 3 sec  
+
+  Thread.sleep(3000);
+
+  
+
+  
+
+  
+
+  
+
+  //To close the driver
+
+  driver.close();
+
+  
+
+	
+
+ }
+
+
+}
