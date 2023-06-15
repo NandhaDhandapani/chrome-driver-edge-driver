@@ -1,0 +1,73 @@
+WebDriverManager.edgedriver().setup();
+WebDriver driver = new EdgeDriver();
+
+
+  WebElement search = driver.findElement(By.name(search));
+
+JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,3500)", "");
+
+
+
+  List<WebElement> item_name = driver.findByElement(By.xpath("//h2[@classname='product-title']"));
+ 
+   for(WebElement webElement:item_name)
+   {
+	   System.out.println(webElement.getText());
+   }
+
+
+  driver.findElement(By.xpath("")).click();
+
+
+  System.out.println(search.getCssValue("color"));
+	   System.out.println(search.getSize());
+
+
+
+
+
+
+ driver.findElement(By.xpath("//*[@id=\"sibe-box\"]/ul[2]/li[1]/a")).click();
+
+
+ driver.findElement(By.id("input-firstname")).sendKeys("Bharath");
+
+
+Select sel=new Select(month);
+			sel.selectByVisibleText("July");
+
+
+
+	WebElement src = driver.findElement(By.id("draggable"));
+		WebElement des = driver.findElement(By.id("droppable"));
+		Actions ac = new Actions(driver);
+		ac.clickAndHold(src).release(des).build().perform();
+                   driver.switchTo().frame(0);
+
+
+
+Alert al = driver.switchTo().alert();
+		al.dismiss();
+		
+		value.clear();
+
+
+
+
+
+
+
+
+driver.get("https://google.com");
+		driver.manage().window().maximize();
+		WebElement key1 = driver.findElement(By.name("q"));
+		key1.sendKeys("Apple");
+		driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+		Thread.sleep(5000);
+		String t1 = driver.getTitle();
+		String id1 = driver.getWindowHandle();
+		System.out.println(t1);
+		System.out.println(id1);
+		
+		driver.switchTo().newWindow(WindowType.TAB);
